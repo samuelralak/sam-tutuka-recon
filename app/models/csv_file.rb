@@ -12,7 +12,7 @@ class CsvFile
   def load!
     return write_to_cache if @attachment.respond_to?(:content_type) && @attachment.content_type.eql?('text/csv')
 
-    errors.add :format, 'must be text/csv'
+    errors.add :format, 'must be of type text/csv'
     raise ActiveRecord::RecordInvalid, self
   end
 

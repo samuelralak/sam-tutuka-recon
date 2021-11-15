@@ -12,5 +12,8 @@ application.register("compare-files", CompareFilesController)
 import ComparisonResultsController from "./comparison_results_controller.js"
 application.register("comparison-results", ComparisonResultsController)
 
+import ErrorsController from "./errors_controller.js"
+application.register("errors", ErrorsController)
+
 import ReportsController from "./reports_controller.js"
 application.register("reports", ReportsController)
