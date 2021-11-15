@@ -1,0 +1,23 @@
+div class="px-4 py-5 sm:px-6"
+  div class="border border-gray-200 overflow-hidden sm:rounded-lg"
+    div class="px-4 py-5 sm:px-6"
+      h3 class="text font-medium text-gray-900"
+        = result[:filename]
+    .border-t.border-gray-200
+      dl
+        div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+          dt.text-sm.font-medium.text-gray-500 Total records
+          dd class="mt-1 text-sm text-gray-900 sm:mt-0 text-right"
+            = result[:count]
+        div class="bg-white px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+          dt.text-sm.font-medium.text-gray-500 Marched records
+          dd class="mt-1 text-sm text-gray-900 sm:mt-0 text-right"
+            = result[:matched]
+        div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+          dt.text-sm.font-medium.text-gray-500 Unmatched records
+          dd class="mt-1 text-sm text-gray-900 sm:mt-0 text-right"
+            = result[:unmatched].size
+        div class="bg-white px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6"
+          dt.text-sm.font-medium.text-gray-500 Duplicates
+          dd class="mt-1 text-sm text-gray-900 sm:mt-0 text-right"
+            = result[:duplicates].size

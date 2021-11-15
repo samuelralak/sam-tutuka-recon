@@ -38,6 +38,9 @@ gem 'slim-rails', '~> 3.3'
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
 
+# Use StimulusJS
+gem 'stimulus-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

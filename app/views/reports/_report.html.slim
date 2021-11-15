@@ -1,0 +1,27 @@
+li class="bg-white shadow overflow-hidden rounded-md hidden" data-controller="reports"
+  div class="px-4 py-5 border-b border-gray-200 sm:px-6"
+    h3 class="text leading-6 font-medium text-gray-900"
+      | Unmatched report
+
+  .grid.grid-cols-1.py-5
+    - results.collect do |key, value|
+      div class="px-4 py-5 sm:px-6"
+        div class="border border-gray-200 sm:rounded-lg"
+          div class="px-4 py-5 sm:px-6"
+            h3 class="text font-medium text-gray-900"
+              = value[:filename]
+          .border-t.border-gray-200.overflow-scroll
+            table class="min-w-full divide-y divide-gray-200"
+              thead class="bg-gray-50"
+                tr
+                  - value[:headers].each do |header|
+                    th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 tracking-wider"
+                      = header
+              tbody
+                - value[:unmatched].each_with_index do |row, index|
+                  tr class="#{index.even? && 'bg-gray-50' || 'bg-white'}"
+                    - row.each do |val|
+                      td class="px-3 py-3 whitespace-nowrap text-xs font-medium text-gray-900"
+                        = val
+
+
