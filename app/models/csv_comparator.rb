@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# CsvComparator compares two sets of data in cache given cache keys
 class CsvComparator
   include ActiveModel::Validations
 

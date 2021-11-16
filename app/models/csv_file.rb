@@ -2,6 +2,7 @@
 
 require 'csv'
 
+# CSVFile class extracts a csv file metadata and stores in cache
 class CsvFile
   include ActiveModel::Validations
 

@@ -1,24 +1,34 @@
-# README
+# Sam's Tutuka Reconciliation Tool
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Placeholder text describing how Sam's Tutuka Reconciliation Tool will save the world in 5 words or less
 
-Things you may want to cover:
+### Prerequisites
 
-* Ruby version
+* Ruby version 3.0.2
+* Rails 6.1
+* Postgresql
+* Node
+* Yarn
 
-* System dependencies
+### Getting started
 
-* Configuration
+* Unzip or clone this repository
+* CD into project root and run bundle install
+* Run yarn while in the project root
+* Run `bundle exec rake db:create && bundle exec rake db:setup` to set up database
+* Navigate to localhost:3000
 
-* Database creation
+### Running tests
 
-* Database initialization
+Tests are located in the `spec/` directory and can be run by executing this command
+```shell
+$ rspec spec/
+```
 
-* How to run the test suite
+### Deployment
 
-* Services (job queues, cache servers, search engines, etc.)
+A hosted version of this project can be located at:
+```shell
+https://tutuka-txn-compare-sam.herokuapp.com/
+```
 
-* Deployment instructions
-
-* ...

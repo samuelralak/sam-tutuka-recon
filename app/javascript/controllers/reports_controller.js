@@ -10,10 +10,6 @@ export default class extends Controller {
 
   static targets = ["showMatchesLink"]
 
-  hideModal() {
-    this.element.classList.add("hidden")
-  }
-
   showPossibleMatches(event) {
     const [xhr, _status] = event.detail;
 
