@@ -19,7 +19,7 @@ class CsvFile
   def meta
     @meta ||= Hash[
       cache_key: cache_key,
-      filename: @attachment.original_filename,
+      filename: @attachment&.original_filename,
       rows: Set.new,
       duplicates: Set.new,
       count: 0,
@@ -47,6 +47,7 @@ class CsvFile
     end
 
     Rails.cache.fetch(meta[:cache_key]) { meta }
+    self
   end
 
   def update_rows(row)

@@ -8,16 +8,18 @@ export default class extends Controller {
     }.bind(this))
   }
 
-  static targets = ["keyOneInput", "keyTwoInput", "unmatchedReportForm"];
-  static values = { keyOne: String, keyTwo: String }
+  static targets = ["showMatchesLink"]
 
-  onSuccess(event) {
-    console.log("Report fetch success...")
+  hideModal() {
+    this.element.classList.add("hidden")
   }
 
-  prepareReport() {
-    $(document).trigger("comparison_results_controller.state", function (controller) {
-      console.log(controller.ca)
-    })
+  showPossibleMatches(event) {
+    const [xhr, _status] = event.detail;
+
+    if (xhr.status === 200) {
+      const targetElement = event.target.parentElement.parentElement;
+      targetElement.insertAdjacentHTML("afterend", xhr.response);
+    }
   }
 }

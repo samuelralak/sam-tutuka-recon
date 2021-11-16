@@ -14,12 +14,20 @@ li class="bg-white shadow overflow-hidden rounded-md hidden" data-controller="re
             table class="min-w-full divide-y divide-gray-200"
               thead class="bg-gray-50"
                 tr
+                  th
                   - value[:headers].each do |header|
                     th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 tracking-wider"
                       = header
               tbody
                 - value[:unmatched].each_with_index do |row, index|
-                  tr class="#{index.even? && 'bg-gray-50' || 'bg-white'}"
+                  tr id="row_#{index}_#{key}" class="#{index.even? && 'bg-gray-50' || 'bg-white'}"
+                    td class="px-3 py-3 whitespace-nowrap text-xs font-medium text-blue"
+                      = link_to "Show possible matches",
+                              matches_reports_url(params: { row: row, ref: results.keys.delete_if { |el| el.eql?(key)} }),
+                              method: :post,
+                              remote: true,
+                              class: "underline",
+                              data: { action: "ajax:complete->reports#showPossibleMatches", "reports-target": "showMatchesLink" }
                     - row.each do |val|
                       td class="px-3 py-3 whitespace-nowrap text-xs font-medium text-gray-900"
                         = val

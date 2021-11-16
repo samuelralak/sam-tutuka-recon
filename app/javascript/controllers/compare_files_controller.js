@@ -22,7 +22,10 @@ export default class extends Controller {
 
   onSuccess(event) {
     const [_data, _status, xhr] = event.detail;
-    this.element.parentElement.insertAdjacentHTML("afterend", xhr.response);
+    const parentElement = this.element.parentElement;
+
+    this.deleteNextSibling(parentElement.nextElementSibling);
+    parentElement.insertAdjacentHTML("afterend", xhr.response);
   }
 
   enableCompareBtn() {
@@ -51,5 +54,15 @@ export default class extends Controller {
   onFormCompleted(event) {
     this.enableCompareBtn()
     this.compareBtnTarget.textContent = compareBtn.text;
+  }
+
+  deleteNextSibling(element) {
+    if (!element) {
+      return
+    }
+
+    const next = element.nextElementSibling;
+    element.remove();
+    this.deleteNextSibling(next);
   }
 }
